@@ -1,0 +1,37 @@
+name: nimtool
+version: "0.1.0"
+author: David W. <cptnwinky@gmail.com>
+about: Grabs Nim data from api.nimiqx.com
+args:
+    - price:
+        short: p
+        long: price
+        #index: 1
+        value_name: current, day, week, month, year
+        help: Current price of Nim
+        takes_value: true
+        possible_values:
+          - current
+          - day
+          - week
+          - month
+          - year
+
+    - currency:
+        short: c
+        long: currency
+        #index: 2
+        value_name: usd, eur, aud, brl, cad, cny, gbp, nzd, btc
+        help: Set the output currency
+        requires:
+          - price
+        possible_values:
+          - usd
+          - eur
+          - aud
+          - brl
+          - cad
+          - cny
+          - gbp
+          - nzd
+          - btc
