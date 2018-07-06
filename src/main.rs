@@ -8,13 +8,12 @@ extern crate chrono;
 extern crate reqwest;
 extern crate serde_json;
 
-use chrono::prelude::*;
-
 // Create the price struct that will
 // hold the deserialized response
 #[derive(Debug, Deserialize)]
 struct Price {
     timestamp: i64,
+    btc: String,
     usd: f64,
     eur: f64,
     aud: f64,
@@ -23,17 +22,37 @@ struct Price {
     cny: f64,
     gbp: f64,
     nzd: f64,
-    btc: String,
-    #[serde(flatten)]
-    inner1h: PricePercentChange1h,
+    dkk: f64,
+    jpy: f64,
+    pln: f64,
+    krw: f64,
+    rub: f64,
+    mxn: f64,
+    sek: f64,
+    hkd: f64,
+    myr: f64,
+    sgd: f64,
+    chf: f64,
+    huf: f64,
+    nok: f64,
+    thb: f64,
+    clp: f64,
+    idr: f64,
+    try: f64,
+    ils: f64,
+    php: f64,
+    twd: f64,
+    czk: f64,
+    inr: f64,
+    pkr: f64,
+    zar: f64,
     percent_change_1h: PricePercentChange1h,
-    #[serde(flatten)]
-    inner24h: PricePercentChange24h,
     percent_change_24h: PricePercentChange24h,
 }
 
 #[derive(Debug, Deserialize)]
 struct PricePercentChange1h {
+    btc: String,
     usd: String,
     eur: String,
     aud: String,
@@ -42,11 +61,11 @@ struct PricePercentChange1h {
     cny: String,
     gbp: String,
     nzd: String,
-    btc: String,
 }
 
 #[derive(Debug, Deserialize)]
 struct PricePercentChange24h {
+    btc: String,
     usd: String,
     eur: String,
     aud: String,
@@ -55,11 +74,12 @@ struct PricePercentChange24h {
     cny: String,
     gbp: String,
     nzd: String,
-    btc: String,
 }
+
 
 fn main() {
     use clap::App;
+    use chrono::prelude::*;
 
     // Pull in our yaml file
     let yaml = load_yaml!("../i18n/english.cli.yaml");
@@ -78,8 +98,8 @@ fn main() {
                             "{}: {} - Percent change 1 hour: {} - Percent change 24 hour: {}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.usd,
-                            s.inner1h.usd,
-                            s.inner24h.usd
+                            s.percent_change_1h.usd,
+                            s.percent_change_24h.usd
                         ),
                         Err(e) => println!("{}", e),
                     },
