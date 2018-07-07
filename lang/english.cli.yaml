@@ -7,7 +7,7 @@ args:
         short: p
         long: price
         #index: 1
-        value_name: current, day, week, month, year
+        value_name: SCOPE
         help: Current price of Nim
         takes_value: true
         possible_values:
@@ -21,7 +21,7 @@ args:
         short: c
         long: currency
         #index: 2
-        value_name: usd, eur, aud, brl, cad, cny, gbp, nzd, btc
+        value_name: CURRENCY
         help: Set the output currency
         requires:
           - price

@@ -1,0 +1,8 @@
+pct_change1h:
+    en: 'Percent change 1 hour'
+    es: 'Cambio porcentual 1 hora'
+    zh_hans: '百分比变化1小时'
+pct_change24h:
+    en: 'Percent change 24 hours'
+    es: 'Cambio porcentual las 24 horas'
+    zh_hans: '24小时变化百分比'
