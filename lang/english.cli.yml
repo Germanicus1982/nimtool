@@ -10,12 +10,14 @@ args:
         value_name: SCOPE
         help: Current price of Nim
         takes_value: true
+        requires:
+          - currency
         possible_values:
           - current
-          - day
-          - week
-          - month
-          - year
+          #- day
+          #- week
+          #- month
+          #- year
 
     - currency:
         short: c
@@ -28,10 +30,5 @@ args:
         possible_values:
           - usd
           - eur
-          - aud
-          - brl
-          - cad
           - cny
-          - gbp
-          - nzd
           - btc

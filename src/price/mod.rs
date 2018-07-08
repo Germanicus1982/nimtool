@@ -40,6 +40,7 @@ pub struct Price {
     pub percent_change_24h: PricePercentChange,
 }
 
+// TODO: Finish adding the rest of the price data
 #[derive(Deserialize)]
 pub struct PricePercentChange {
     pub btc: String,
@@ -51,4 +52,12 @@ pub struct PricePercentChange {
     pub cny: String,
     pub gbp: String,
     pub nzd: String,
+}
+
+// TODO: write tests
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+
 }
