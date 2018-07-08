@@ -31,12 +31,12 @@ pub mod app {
         Ok(parsed)
     }*/
 
-    pub fn get_translations() -> Result<(), serde_yaml::Error> {
+    /*pub fn get_translations() -> Result<(), serde_yaml::Error> {
         let f = File::open("../lang/strings.yaml")?;
         let mut buf_reader = BufReader::new(f);
         let mut contents = String::new();
         let mut result = buf_reader.read_to_string(&mut contents)?;
         let trans: Lang = serde_yaml::from_str(&result)?.unwrap()?;
         Ok(())
-    }
+    }*/
 }
