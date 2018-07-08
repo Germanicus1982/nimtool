@@ -5,17 +5,18 @@ This tool is still in very early stages of development so it is not feature comp
 This tool is my first effort in learning Rust after reading the book so there's lot's of probably poor practices in the code. By developing this further I hope to develop my skills with Rust so please keep that in mind if examining the code. It's bad, I know.
   
 # Usage: 
-**Example:** nimtool --price current --currency usd
-**Output:** 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
 
-nimtool [OPTIONS]
-FLAGS:
--h, --help       Prints help information
--V, --version    Prints version information
-
-OPTIONS:
--c, --currency <CURRENCY>    Set the output currency [possible values: usd, eur, cny, btc]
--p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
+    **Example:** nimtool --price current --currency usd
+    **Output:** 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
+    
+    nimtool [OPTIONS]
+    FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+    
+    OPTIONS:
+    -c, --currency <CURRENCY>    Set the output currency [possible values: usd, eur, cny, btc]
+    -p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
 
 # Installation
 There are no packages for any systems yet, that's pretty low on my todo list at this stage. Furthermore I have only tested this on x86_64 linux. To use the tool you first need to install the rust toolchain. Fortunately rust makes this real easy with Rustup. This tool is currently using Rust nightly so be sure that's the toolchain you build against.
