@@ -2,6 +2,7 @@
 name = "nimtool"
 version = "0.1.0"
 authors = ["David Wagner <cptnwinky@gmail.com>"]
+license-file = "LICENSE"
 
 [dependencies]
 reqwest = "0.8.6"

@@ -115,6 +115,6 @@ fn main() {
             _ => unreachable!(),
         }
     } else {
-        println!("--mode <MODE> wasn't used...");
+        println!("You must supply arguments. See --help.");
     }
 }

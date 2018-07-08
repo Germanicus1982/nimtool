@@ -1,6 +1,6 @@
 name: nimtool
 version: "0.1.0"
-author: David W. <cptnwinky@gmail.com>
+author: David Wagner <dev@aka.earth>
 about: Grabs Nim data from api.nimiqx.com
 args:
     - price:
@@ -8,7 +8,7 @@ args:
         long: price
         #index: 1
         value_name: SCOPE
-        help: Current price of Nim
+        help: Price of Nim and percentage change
         takes_value: true
         requires:
           - currency
