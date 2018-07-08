@@ -1,7 +1,3 @@
-name: nimtool
-version: "0.1.0"
-author: David Wagner <dev@aka.earth>
-about: Grabs Nim data from api.nimiqx.com
 args:
     - price:
         short: p

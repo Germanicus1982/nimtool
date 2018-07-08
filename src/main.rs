@@ -14,12 +14,12 @@ fn main() {
     // TODO: refactor to handle the case
     // TODO: when a language isn't supported
     // Pull in our YAML file depending on system language
-    let yml = if env!("LANG") == "" {
+    let yml = if env!("NIMTOOL_LANG") == "" {
         // There is no $LANG environment variable so lets
         // just load english as the default
         load_yaml!("../lang/english.cli.yml").to_owned()
 
-    } else if env!("LANG") == "en_US.UTF-8" {
+    } else if env!("NIMTOOL_LANG") == "en" {
         // Load english
         load_yaml!("../lang/english.cli.yml").to_owned()
 
@@ -30,7 +30,12 @@ fn main() {
 
     // Our language specific YAML file with CLI options has
     // been loaded so create a new App instance
-    let matches = App::from_yaml(&yml).get_matches();
+    let matches = App::from_yaml(&yml)
+        .name(crate_name!())
+        .version(crate_version!())
+        .author(crate_authors!())
+        .about(crate_description!())
+        .get_matches();
 
     // The --price (-p) flag has been given it takes these possible values
     // current, day, week, month and year
