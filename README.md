@@ -18,7 +18,7 @@ OPTIONS:
 -p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
 
 # Installation
-There are no packages for any systems yet, that's pretty low on my todo list at this stage. To use the tool you first need to install the rust toolchain. Fortunately rust makes this real easy with Rustup. This tool is currently using Rust nightly so be sure that's the toolchain you build against.
+There are no packages for any systems yet, that's pretty low on my todo list at this stage. Furthermore I have only tested this on x86_64 linux. To use the tool you first need to install the rust toolchain. Fortunately rust makes this real easy with Rustup. This tool is currently using Rust nightly so be sure that's the toolchain you build against.
 
     curl https://sh.rustup.rs -sSf | sh
 Once installed clone this repository
