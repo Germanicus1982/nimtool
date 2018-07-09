@@ -1,5 +1,7 @@
 ﻿# nimtool  
 ## A simple tool to grab Nimiq metrics from api.nimiqx.com
+[![Build Status](https://travis-ci.org/Germanicus1982/nimtool.svg?branch=master)](https://travis-ci.org/Germanicus1982/nimtool)
+
 This tool is still in very early stages of development so it is not feature complete. I've decided to release a small working sample so I can get feedback from the community on which features are actually wanted. Implementing every endpoint from api.nimiqx.com in my spare time will take me months. So, if you'd like to see another currency added or another endpoint included submit a feature request so I can properly prioritize.
 
 This tool is my first effort in learning Rust after reading the book so there's lot's of probably poor practices in the code. By developing this further I hope to develop my skills with Rust so please keep that in mind if examining the code. It's bad, I know.
