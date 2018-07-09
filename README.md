@@ -6,30 +6,37 @@ This tool is my first effort in learning Rust after reading the book so there's 
 
 If you find this tool useful feel free to send me some NIM at "NQ91 GVBG 4EQD 39FA HPTL VPES VDFM FSPG 8QNB"
   
-# Usage: 
-
-    **Example:** nimtool --price current --currency usd
+# Usage:
+```sh
+**Example:** nimtool --price current --currency usd
     **Output:** 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
-    
+
     nimtool [OPTIONS]
     FLAGS:
     -h, --help       Prints help information
     -V, --version    Prints version information
-    
+
     OPTIONS:
     -c, --currency <CURRENCY>    Set the output currency [possible values: usd, eur, cny, btc]
     -p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
+```
 
 # Installation
 There are no packages for any systems yet, that's pretty low on my todo list at this stage. Furthermore I have only tested this on x86_64 linux. To use the tool you first need to install the rust toolchain. Fortunately rust makes this real easy with Rustup. This tool is currently using Rust nightly so be sure that's the toolchain you build against.
 
-    curl https://sh.rustup.rs -sSf | sh
+```sh
+curl https://sh.rustup.rs -sSf | sh
+```
 Once installed clone this repository
 
-    git clone https://github.com/Germanicus1982/nimtool.git
+```sh
+git clone https://github.com/Germanicus1982/nimtool.git
+```
 and then you can use Cargo to build it
 
-    cargo build --release
+```sh
+cargo build --release
+```
 This will build the output to target/release
 
 # Thanks
