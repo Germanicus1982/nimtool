@@ -22,6 +22,7 @@ fn main() {
         {load_yaml!("../lang/spanish.cli.yml").to_owned()}
 
         // default to english
+        // TODO: figure out how to properly load the default
         //{load_yaml!("../lang/english.cli.yml").to_owned()}
     };
 
@@ -36,6 +37,7 @@ fn main() {
 
     // The --price (-p) flag has been given it takes these possible values
     // current, day, week, month and year
+    // TODO: finish adding all the currencies
     if let Some(price) = matches.value_of("price") {
         // Lets grab the price data for `current`
         let getdata = get_price_data();
@@ -53,8 +55,7 @@ fn main() {
                     //##############################
                     "usd" => match getdata {
                         Ok(s) => println!(
-                            // TODO: implement proper language abstraction
-                            "{}: {} - Percent change 1 hour: {} - Percent change 24 hour: {}",
+                            "{}: ${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.usd,
                             s.percent_change_1h.usd,
@@ -69,8 +70,7 @@ fn main() {
                     //##############################
                     "eur" => match getdata {
                         Ok(s) => println!(
-                            // TODO: implement proper language abstraction
-                            "{}: {} - Percent change 1 hour: {} - Percent change 24 hour: {}",
+                            "{}: ₠{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.eur,
                             s.percent_change_1h.eur,
@@ -85,8 +85,7 @@ fn main() {
                     //##############################
                     "cny" => match getdata {
                         Ok(s) => println!(
-                            // TODO: implement proper language abstraction
-                            "{}: {} - Percent change 1 hour: {} - Percent change 24 hour: {}",
+                            "{}: ¥{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.cny,
                             s.percent_change_1h.cny,
@@ -101,8 +100,7 @@ fn main() {
                     //##############################
                     "btc" => match getdata {
                         Ok(s) => println!(
-                            // TODO: implement proper language abstraction
-                            "{}: {} - Percent change 1 hour: {} - Percent change 24 hour: {}",
+                            "{}: ₿{} - %1h: {} - %24h: {}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.btc,
                             s.percent_change_1h.btc,
@@ -110,12 +108,26 @@ fn main() {
                         ),
                         Err(e) => println!("{}", e),
                     },
+                    //##############################
+                    // PRICE
+                    // CURRENT
+                    // FAIL
+                    //##############################
                     _ => unreachable!(),
                 }; // end of currency flag
-            }, // end of price flag
-            "placeholder" => println!("placeholder"),
+            }, // end of current
+            // TODO: Add day flag. This will require a lot more work than price.
+            // TODO: Add week flag.
+            // TODO: Add month flag.
+            // TODO: Add year flag.
+            //
+            "day" => println!("day"),
             _ => unreachable!(),
         }
+    // The --help (-h) flag has been given. Display help text
+    // TODO: finish up help text
+    } else if let Some(help) = matches.value_of("help") {
+
     } else {
         println!("You must supply arguments. See --help.");
     }
