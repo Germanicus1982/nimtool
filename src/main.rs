@@ -13,19 +13,16 @@ fn main() {
     // TODO: implement more languages
     // TODO: refactor to handle the case
     // TODO: when a language isn't supported
-    // Pull in our YAML file depending on system language
-    let yml = if env!("NIMTOOL_LANG") == "" {
-        // There is no $LANG environment variable so lets
-        // just load english as the default
-        load_yaml!("../lang/english.cli.yml").to_owned()
+    // Pull in our YAML file depending on chosen language
+    let yml = {
+        #[cfg(feature = "en")]
+        {load_yaml!("../lang/english.cli.yml").to_owned()}
 
-    } else if env!("NIMTOOL_LANG") == "en" {
-        // Load english
-        load_yaml!("../lang/english.cli.yml").to_owned()
+        #[cfg(feature = "es")]
+        {load_yaml!("../lang/spanish.cli.yml").to_owned()}
 
-    } else {
-        // load_yaml! panics on failure
-        panic!()
+        // default to english
+        //{load_yaml!("../lang/english.cli.yml").to_owned()}
     };
 
     // Our language specific YAML file with CLI options has
@@ -34,7 +31,7 @@ fn main() {
         .name(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
-        .about(crate_description!())
+        //.about(crate_description!())
         .get_matches();
 
     // The --price (-p) flag has been given it takes these possible values

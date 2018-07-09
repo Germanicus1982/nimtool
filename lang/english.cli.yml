@@ -1,8 +1,12 @@
+name: placeholder
+version: "0.0.0"
+about: A simple tool to grab Nimiq metrics from api.nimiqx.com
+author: placeholder
+
 args:
     - price:
         short: p
         long: price
-        #index: 1
         value_name: SCOPE
         help: Price of Nim and percentage change
         takes_value: true
@@ -10,15 +14,10 @@ args:
           - currency
         possible_values:
           - current
-          #- day
-          #- week
-          #- month
-          #- year
 
     - currency:
         short: c
         long: currency
-        #index: 2
         value_name: CURRENCY
         help: Set the output currency
         requires:
@@ -28,3 +27,8 @@ args:
           - eur
           - cny
           - btc
+
+    - help:
+        short: h
+        long: help
+        help: testing

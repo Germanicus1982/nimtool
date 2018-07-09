@@ -1,8 +1,12 @@
 [package]
+publish = false
 name = "nimtool"
 version = "0.1.0"
+description = "A simple tool to grab Nimiq metrics from api.nimiqx.com"
 authors = ["David Wagner <dev@aka.earth>"]
 license-file = "LICENSE"
+readme = "README.md"
+repository = "https://github.com/Germanicus1982/nimtool"
 
 [dependencies]
 reqwest = "0.8.6"
@@ -12,3 +16,7 @@ serde_json = "1.0.22"
 serde_yaml = "0.7.5"
 chrono = "0.4.4"
 clap = {version = "2.32.0", features = ["yaml", "suggestions", "wrap_help"]}
+
+[features]
+en = []
+#es = []

@@ -2,24 +2,24 @@
 //#![allow(dead_code, unused_imports)]
 
 extern crate reqwest;
-//#[macro_use]
-//extern crate serde_derive;
-//extern crate serde_json;
+#[macro_use]
+extern crate serde_derive;
+extern crate serde_json;
 //extern crate serde_yaml;
 
 pub mod price;
-pub mod lang;
-pub mod error;
+//pub mod lang;
+//pub mod error;
 
 pub mod app {
     use super::price::*;
-    use super::lang::*;
-    use std::error::Error;
-    use serde_yaml;
+    //use super::lang::*;
+    //use std::error::Error;
+    //use serde_yaml;
 
     // TODO: Handle all other endpoints and return proper errors
-    pub fn get_price_data() -> Result<Price, Error> {
-        let req = reqwest::get("https://api.nimiqx.com/price/")?.json();
+    pub fn get_price_data() -> Result<Price, reqwest::Error> {
+        reqwest::get("https://api.nimiqx.com/price/")?.json()
     }
 
     /*pub fn get_translations() -> Result<(), ErrorHandler> {
