@@ -1,5 +1,6 @@
 ﻿# nimtool  
 ## A simple tool to grab Nimiq metrics from api.nimiqx.com
+[![Build Status](https://travis-ci.org/Germanicus1982/nimtool.svg?branch=dev)](https://travis-ci.org/Germanicus1982/nimtool)
 This tool is still in very early stages of development so it is not feature complete. I've decided to release a small working sample so I can get feedback from the community on which features are actually wanted. Implementing every endpoint from api.nimiqx.com in my spare time will take me months. So, if you'd like to see another currency added or another endpoint included submit a feature request so I can properly prioritize.
 
 This tool is my first effort in learning Rust after reading the book so there's lot's of probably poor practices in the code. By developing this further I hope to develop my skills with Rust so please keep that in mind if examining the code. It's bad, I know.
@@ -8,8 +9,8 @@ If you find this tool useful feel free to send me some NIM at "NQ91 GVBG 4EQD 39
   
 # Usage:
 ```sh
-**Example:** nimtool --price current --currency usd
-    **Output:** 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
+Example: nimtool --price current --currency usd
+Output: 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
 
     nimtool [OPTIONS]
     FLAGS:
