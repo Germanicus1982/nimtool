@@ -4,6 +4,8 @@
 
 This tool is still in very early stages of development so it is not feature complete. I've decided to release a small working sample so I can get feedback from the community on which features are actually wanted. Implementing every endpoint from api.nimiqx.com in my spare time will take me months. So, if you'd like to see another currency added or another endpoint included submit a feature request so I can properly prioritize.
 
+I just release v0.2.18 in which the current price feature is complete. You can now search every available currency.
+
 This tool is my first effort in learning Rust after reading the book so there's lot's of probably poor practices in the code. By developing this further I hope to develop my skills with Rust so please keep that in mind if examining the code. It's bad, I know.
 
 If you find this tool useful feel free to send me some NIM at "NQ91 GVBG 4EQD 39FA HPTL VPES VDFM FSPG 8QNB"
@@ -14,13 +16,15 @@ Example: nimtool --price current --currency usd
 Output: 2018-07-08 05:25:02: 0.0032 - Percent change 1 hour: 0.00 - Percent change 24 hour: -3.03
 
     nimtool [OPTIONS]
+
     FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+        -h, --help       Prints help information
+        -V, --version    Prints version information
 
     OPTIONS:
-    -c, --currency <CURRENCY>    Set the output currency [possible values: usd, eur, cny, btc]
-    -p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
+        -c, --currency <CURRENCY>    Set the output currency [possible values: usd, eur, aud, brl, cad, cny, gbp, nzd, dkk, jpy, pln, krw, rub, mxn, sek, hkd, myr, sgd, chf, huf,
+                                     nok, thb, clp, idr, try, ils, php, twd, czk, inr, pkr, zar, btc]
+        -p, --price <SCOPE>          Price of Nim and percentage change [possible values: current]
 ```
 
 # Installation

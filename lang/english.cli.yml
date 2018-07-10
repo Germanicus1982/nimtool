@@ -25,10 +25,34 @@ args:
         possible_values:
           - usd
           - eur
+          - aud
+          - brl
+          - cad
           - cny
+          - gbp
+          - nzd
+          - dkk
+          - jpy
+          - pln
+          - krw
+          - rub
+          - mxn
+          - sek
+          - hkd
+          - myr
+          - sgd
+          - chf
+          - huf
+          - nok
+          - thb
+          - clp
+          - idr
+          - try
+          - ils
+          - php
+          - twd
+          - czk
+          - inr
+          - pkr
+          - zar
           - btc
-
-    - help:
-        short: h
-        long: help
-        help: testing

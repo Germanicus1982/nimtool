@@ -1,7 +1,7 @@
 [package]
 publish = false
 name = "nimtool"
-version = "0.1.0"
+version = "0.2.18"
 description = "A simple tool to grab Nimiq metrics from api.nimiqx.com"
 authors = ["David Wagner <dev@aka.earth>"]
 license-file = "LICENSE"
@@ -17,6 +17,8 @@ serde_yaml = "0.7.5"
 chrono = "0.4.4"
 clap = {version = "2.32.0", features = ["yaml", "suggestions", "wrap_help"]}
 
-[features]
-en = []
+# TODO: Implement internationalization
+#
+#[features]
+#en = []
 #es = []

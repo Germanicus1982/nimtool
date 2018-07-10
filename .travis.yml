@@ -4,7 +4,7 @@ os:
   - linux
   - osx
 script:
-  - cargo build --verbose --features en
+  - cargo build --verbose
 rust:
   - stable
   - beta
