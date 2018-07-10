@@ -1,6 +1,6 @@
 ﻿# nimtool  
 ## A simple tool to grab Nimiq metrics from api.nimiqx.com
-[![Build Status](https://travis-ci.org/Germanicus1982/nimtool.svg?branch=dev)](https://travis-ci.org/Germanicus1982/nimtool)
+[![Build Status](https://travis-ci.org/Germanicus1982/nimtool.svg?branch=master)](https://travis-ci.org/Germanicus1982/nimtool)
 
 This tool is still in very early stages of development so it is not feature complete. I've decided to release a small working sample so I can get feedback from the community on which features are actually wanted. Implementing every endpoint from api.nimiqx.com in my spare time will take me months. So, if you'd like to see another currency added or another endpoint included submit a feature request so I can properly prioritize.
 
