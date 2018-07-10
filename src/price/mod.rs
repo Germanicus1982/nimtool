@@ -1,5 +1,8 @@
+//
 // Create the price struct that will
-// hold the deserialized response
+// hold the deserialized response from
+// get_price_data()
+//
 #[derive(Deserialize)]
 pub struct Price {
     pub timestamp: i64,

@@ -4,6 +4,11 @@ about: A simple tool to grab Nimiq metrics from api.nimiqx.com
 author: placeholder
 
 args:
+    - supply:
+        short: s
+        long: supply
+        help: Current existing supply of Nim
+
     - price:
         short: p
         long: price

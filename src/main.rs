@@ -10,8 +10,10 @@ fn main() {
     use chrono::prelude::*;
     use nimtool::app::*;
 
+    //
     // TODO: implement internationalization
     // Pull in our YAML file depending on chosen language
+    //
     let yml = {
         //#[cfg(feature = "en")]
         //{load_yaml!("../lang/english.cli.yml").to_owned()}
@@ -33,9 +35,10 @@ fn main() {
         //.about(crate_description!())
         .get_matches();
 
+    //
     // The --price (-p) flag has been given it takes these possible values
     // current, day, week, month and year
-    // TODO: finish adding all the currencies
+    //
     if let Some(price) = matches.value_of("price") {
         // Lets grab the price data for `current`
         let getdata = get_price_data();
@@ -560,8 +563,24 @@ fn main() {
     // TODO: finish up help text
     //} else if let Some(help) = matches.subcommand_matches("help") {
         //
-    } else {
-        // TODO: get rid of this english only string
-        println!("You must supply arguments. See --help.");
-    }
-}
+    } // end of price
+
+    //
+    // The --supply (-s) flag has been given
+    //
+    if matches.is_present("supply") {
+        // Grab supply data
+        let supply = get_supply_data();
+
+        match supply {
+            Ok(s) => {
+                println!("Block height: {}", s.height);
+                println!("Market cap: {}", s.market_cap);
+                println!("Existing supply: {}", s.existing_supply);
+                println!("Circulating supply: {}", s.circulating_supply);
+            },
+            Err(e) => println!("{}", e)
+        }
+    } // end of supply
+
+} // end of main
