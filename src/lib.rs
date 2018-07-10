@@ -5,7 +5,6 @@ extern crate reqwest;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
-//extern crate serde_yaml;
 
 pub mod price;
 //pub mod lang;
@@ -22,14 +21,6 @@ pub mod app {
         reqwest::get("https://api.nimiqx.com/price/")?.json()
     }
 
-    /*pub fn get_translations() -> Result<(), ErrorHandler> {
-        let f = File::open("../lang/strings.yaml")?;
-        let mut buf_reader = BufReader::new(f);
-        let mut contents = String::new();
-        let mut result = buf_reader.read_to_string(&mut contents)?;
-        let trans: Lang = serde_yaml::from_str(&result)?.unwrap()?;
-        Ok(())
-    }*/
 }
 
 // TODO: write tests
