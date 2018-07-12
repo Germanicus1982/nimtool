@@ -557,11 +557,13 @@ fn main() {
                     _ => unreachable!(),
                 }; // end of currency flag
             }, // end of current
-            // TODO: Add day flag. This will require a lot more work than price.
-            // TODO: Add week flag.
+
             // TODO: Add month flag.
             // TODO: Add year flag.
             //
+            // The daily stats
+            //
+
             "day" => if let Some(currency) = matches.value_of("currency") {
                 let getdata = get_price_day_data();
 
@@ -1373,12 +1375,824 @@ fn main() {
                 }// end currency
 
             }// end of "day"
-            //##############################
-            // PRICE
-            // DAY
-            // FAIL
-            //##############################
+
+            //
+            // The weekly stats
+            //
+            "week" => if let Some(currency) = matches.value_of("currency") {
+                let getdata = get_price_week_data();
+
+                match currency {
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // BTC
+                    //##############################
+                    "btc" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    // I know using unwrap() is kinda dirty however, in
+                                    // this case I am positive that there is a value here
+                                    // every time since there would have been many errors
+                                    // before this if there wasn't. If you're combing
+                                    // through this code and have a better way for me to
+                                    // handle this situation please let me know.
+                                    .map(|(i, p)| (i as f32, p.btc.parse::<f32>().unwrap() as f32))
+                                    .collect();
+
+                                println!("\r\ny = BTC \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // USD
+                    //##############################
+                    "usd" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.usd as f32))
+                                    .collect();
+
+                                println!("\r\ny = USD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // EUR
+                    //##############################
+                    "eur" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.eur as f32))
+                                    .collect();
+
+                                println!("\r\ny = EUR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // AUD
+                    //##############################
+                    "aud" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.aud as f32))
+                                    .collect();
+
+                                println!("\r\ny = AUD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // BRL
+                    //##############################
+                    "brl" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.brl as f32))
+                                    .collect();
+
+                                println!("\r\ny = BRL \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // CAD
+                    //##############################
+                    "cad" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.cad as f32))
+                                    .collect();
+
+                                println!("\r\ny = CAD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // CNY
+                    //##############################
+                    "cny" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.cny as f32))
+                                    .collect();
+
+                                println!("\r\ny = CNY \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // GBP
+                    //##############################
+                    "gbp" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.gbp as f32))
+                                    .collect();
+
+                                println!("\r\ny = GBP \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // NZD
+                    //##############################
+                    "nzd" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.nzd as f32))
+                                    .collect();
+
+                                println!("\r\ny = NZD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // DKK
+                    //##############################
+                    "dkk" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.dkk as f32))
+                                    .collect();
+
+                                println!("\r\ny = DKK \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // JPY
+                    //##############################
+                    "jpy" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.jpy as f32))
+                                    .collect();
+
+                                println!("\r\ny = JPY \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // PLN
+                    //##############################
+                    "pln" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.pln as f32))
+                                    .collect();
+
+                                println!("\r\ny = PLN \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // KRW
+                    //##############################
+                    "krw" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.krw as f32))
+                                    .collect();
+
+                                println!("\r\ny = KRW \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // RUB
+                    //##############################
+                    "rub" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.rub as f32))
+                                    .collect();
+
+                                println!("\r\ny = RUB \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // MXN
+                    //##############################
+                    "mxn" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.mxn as f32))
+                                    .collect();
+
+                                println!("\r\ny = MXN \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // SEK
+                    //##############################
+                    "sek" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.sek as f32))
+                                    .collect();
+
+                                println!("\r\ny = SEK \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // Week
+                    // HKD
+                    //##############################
+                    "hkd" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.hkd as f32))
+                                    .collect();
+
+                                println!("\r\ny = HKD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // MYR
+                    //##############################
+                    "myr" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.myr as f32))
+                                    .collect();
+
+                                println!("\r\ny = MYR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // SGD
+                    //##############################
+                    "sgd" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.sgd as f32))
+                                    .collect();
+
+                                println!("\r\ny = SGD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // CHF
+                    //##############################
+                    "chf" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.chf as f32))
+                                    .collect();
+
+                                println!("\r\ny = CHF \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // HUF
+                    //##############################
+                    "huf" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.huf as f32))
+                                    .collect();
+
+                                println!("\r\ny = HUF \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // NOK
+                    //##############################
+                    "nok" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.nok as f32))
+                                    .collect();
+
+                                println!("\r\ny = NOK \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // THB
+                    //##############################
+                    "thb" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.thb as f32))
+                                    .collect();
+
+                                println!("\r\ny = THB \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // CLP
+                    //##############################
+                    "clp" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.clp as f32))
+                                    .collect();
+
+                                println!("\r\ny = CLP \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // IDR
+                    //##############################
+                    "idr" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.idr as f32))
+                                    .collect();
+
+                                println!("\r\ny = IDR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // TRY
+                    //##############################
+                    "try" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.try as f32))
+                                    .collect();
+
+                                println!("\r\ny = TRY \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // ILS
+                    //##############################
+                    "ils" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.ils as f32))
+                                    .collect();
+
+                                println!("\r\ny = ILS \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // PHP
+                    //##############################
+                    "php" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.php as f32))
+                                    .collect();
+
+                                println!("\r\ny = PHP \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // TWD
+                    //##############################
+                    "twd" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.twd as f32))
+                                    .collect();
+
+                                println!("\r\ny = TWD \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // CZK
+                    //##############################
+                    "czk" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.czk as f32))
+                                    .collect();
+
+                                println!("\r\ny = CZK \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // INR
+                    //##############################
+                    "inr" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.inr as f32))
+                                    .collect();
+
+                                println!("\r\ny = INR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // PKR
+                    //##############################
+                    "pkr" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.pkr as f32))
+                                    .collect();
+
+                                println!("\r\ny = PKR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // WEEK
+                    // ZAR
+                    //##############################
+                    "zar" =>
+                        match getdata {
+                            Ok(data) => {
+                                let points: Vec<_> = data
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, p)| (i as f32, p.zar as f32))
+                                    .collect();
+
+                                println!("\r\ny = ZAR \r\nx = Week");
+                                Chart::new(180, 60, 0.0, 671.0)
+                                    .lineplot(Shape::Lines(&points))
+                                    .display();
+
+                                // TODO: get these numbers and display them
+                                //println!("min: {} max: {}: average: {}", 22, 33, 24.5);
+                            },
+                            Err(e) => println!("{}", e)
+                        }// end getdata
+                    //##############################
+                    // PRICE
+                    // CURRENCY
+                    // FAIL
+                    //##############################
+                    _ => unreachable!()
+                }// end currency
+
+            }// end of week
+            
             _ => unreachable!(),
+
         }
     // TODO: finish up help text
     //} else if let Some(help) = matches.subcommand_matches("help") {
