@@ -33,6 +33,11 @@ pub mod app {
         reqwest::get("https://api.nimiqx.com/price/day/")?.json()
     }
 
+    // grab price every 15 minutes for the last week
+    pub fn get_price_week_data() -> Result<Vec<PriceDay>, reqwest::Error> {
+        reqwest::get("https://api.nimiqx.com/price/week/")?.json()
+    }
+
 }
 
 // TODO: write tests
