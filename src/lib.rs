@@ -10,6 +10,8 @@ pub mod price;
 pub mod supply;
 pub mod netstat;
 pub mod transaction;
+pub mod block;
+pub mod addressbook;
 //pub mod lang;
 //pub mod error;
 
@@ -18,6 +20,9 @@ pub mod app {
     use super::supply::*;
     use super::netstat::*;
     use super::transaction::*;
+    use super::block::*;
+    use super::addressbook::*;
+
     use reqwest::Url;
 
     // TODO: Refactor all of these into one function
@@ -48,13 +53,33 @@ pub mod app {
         reqwest::get("https://api.nimiqx.com/network-stats/")?.json()
     }
 
-    // grab supply data for supply flag
+    // grab transaction data for transaction option
     pub fn get_transaction_data(hash: &str) -> Result<Transaction, reqwest::Error> {
         // using unwrap() here because I know the string is always valid
         // and I'm relying on the response from the api to tell me if the
         // passed hash is invalid.
         let base = Url::parse("https://api.nimiqx.com/transaction/").unwrap();
         let url = base.join(hash).unwrap();
+        reqwest::get(url)?.json()
+    }
+
+    // grab blockinfo data for blockinfo option
+    pub fn get_blockinfo_data(identifier: &str) -> Result<BlockInfo, reqwest::Error> {
+        // using unwrap() here because I know the string is always valid
+        // and I'm relying on the response from the api to tell me if the
+        // passed block is invalid.
+        let base = Url::parse("https://api.nimiqx.com/block/").unwrap();
+        let url = base.join(identifier).unwrap();
+        reqwest::get(url)?.json()
+    }
+
+    // grab addressbook data for addressbook option
+    pub fn get_addressbook_data(address: &str) -> Result<AddressBook, reqwest::Error> {
+        // using unwrap() here because I know the string is always valid
+        // and I'm relying on the response from the api to tell me if the
+        // passed block is invalid.
+        let base = Url::parse("https://api.nimiqx.com/address-book/").unwrap();
+        let url = base.join(address).unwrap();
         reqwest::get(url)?.json()
     }
 

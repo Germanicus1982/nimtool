@@ -21,6 +21,20 @@ args:
         value_name: HASH
         takes_value: true
 
+    - blockinfo:
+        short: b
+        long: blockinfo
+        help: Get block information
+        value_name: IDENTIFIER
+        takes_value: true
+
+    - addressbook:
+        short: a
+        long: addressbook
+        help: Find a name by address. Must use quotes e.g. "NQ91 GV..."
+        value_name: ADDRESS
+        takes_value: true
+
     - price:
         short: p
         long: price

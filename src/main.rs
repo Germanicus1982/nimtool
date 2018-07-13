@@ -2221,7 +2221,6 @@ fn main() {
         }
     }// end of supply
 
-    // TODO: Convert numbers to better formats
     //
     // The --network-stats (-n) flag has been given
     //
@@ -2249,7 +2248,7 @@ fn main() {
     }// end of network-stats
 
     //
-    // The --transaction (-t) flag has been given
+    // The --transaction (-t) option has been given
     //
     if let Some(hash) = matches.value_of("transaction") {
         // Grab supply data
@@ -2272,8 +2271,72 @@ fn main() {
                 }
 
             },
-            Err(e) => println!("Testing: {}", e)
+            Err(e) => println!("-b{}", e)
         }// end of transaction match
-    }// end of transaction flag
+    }// end of transaction option
 
+    //
+    // The --blockinfo (-b) option has been given
+    //
+    if let Some(blockinfo) = matches.value_of("blockinfo") {
+        // Grab supply data
+        let blockinfo = get_blockinfo_data(blockinfo);
+
+        match blockinfo {
+            Ok(s) => {
+                if s.error == "Block not found" {
+                    println!("Block not found.");
+                } else {
+                    println!("Block hash: {}", s.hash);
+                    println!("Block height: {}", s.height);
+                    println!("Parent hash: {}", s.parent_hash);
+                    println!("Interlink hash: {}", s.interlink_hash);
+                    println!("Body hash: {}", s.body_hash);
+                    println!("Accounts hash: {}", s.accounts_hash);
+                    println!("POW: {}", s.pow);
+                    println!("NONCE: {}", s.nonce);
+                    println!("Reward: {}", s.reward/100000.00);
+                    println!("Miner address: {}", s.miner_address);
+                    println!("Difficulty: {}", s.difficulty);
+                    println!("Size: {}", s.size);
+                    println!("Extra data: {}", s.extra_data);
+                    println!("Transactions: {}", s.transactions);
+                    println!("Timestamp: Unix - {} Human - {} GMT", s.timestamp, NaiveDateTime::from_timestamp(s.timestamp, 0));
+                }
+
+            },
+            Err(e) => println!("{}", e)
+        }// end of block match
+    }// end of block flag
+
+    //
+    // The --addressbook (-a) option has been given
+    //
+    if let Some(address) = matches.value_of("addressbook") {
+        // Grab supply data
+        let label = get_addressbook_data(address);
+
+        match label {
+            Ok(s) => {
+                if s.error != "" {
+                    println!("{}", s.error);
+                } else {
+                    println!("Label: {}", s.label);
+                }
+
+            },
+            Err(e) => println!("{}", e)
+        }// end of addressbook match
+    }// end of addressbook flag
+
+    // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
+    // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
+    // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
+    // TODO: address book https://api.nimiqx.com/docs/address-book
+    // TODO: latest transactions https://api.nimiqx.com/docs/latest-transactions
+    // TODO: account information https://api.nimiqx.com/docs/account-information
+    // TODO: account blocks https://api.nimiqx.com/docs/account-blocks
+    // TODO: account transactions https://api.nimiqx.com/docs/account-blocks
+    // TODO: top 500 solo miners https://api.nimiqx.com/docs/top500-solo-miners
+    // TODO: solo miner ranks https://api.nimiqx.com/docs/solo-miners-ranks
 }// end of main
