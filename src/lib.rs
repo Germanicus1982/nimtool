@@ -12,8 +12,6 @@ pub mod netstat;
 pub mod transaction;
 pub mod block;
 pub mod addressbook;
-//pub mod lang;
-//pub mod error;
 
 pub mod app {
     use super::price::*;

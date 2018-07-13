@@ -6,14 +6,15 @@ extern crate clap;
 extern crate chrono;
 extern crate nimtool;
 extern crate textplots;
+extern crate separator;
 
 
 fn main() {
     use clap::App;
     use nimtool::app::*;
     use chrono::prelude::*;
-    //use statrs::statistics::Statistics;
     use textplots::{Chart, Plot, Shape};
+    use separator::Separatable;
 
     //
     // TODO: implement internationalization
@@ -2214,8 +2215,8 @@ fn main() {
             Ok(s) => {
                 println!("Block height: {}", s.height);
                 println!("Market cap: {}", s.market_cap);
-                println!("Existing supply: {}", s.existing_supply);
-                println!("Circulating supply: {}", s.circulating_supply);
+                println!("Existing supply: {}", s.existing_supply.separated_string());
+                println!("Circulating supply: {}", s.circulating_supply.separated_string());
             },
             Err(e) => println!("{}", e)
         }
@@ -2238,9 +2239,9 @@ fn main() {
                     println!("Hashrate: {} GH/s", s.hashrate/100000000.00);
                 }
                 println!("Last found block: {}", s.last_found);
-                println!("Block height: {}", s.height);
-                println!("Difficulty: {}", s.difficulty);
-                println!("Last reward: {}", s.last_reward/100000.00);
+                println!("Block height: {}", s.height.separated_string());
+                println!("Difficulty: {}", s.difficulty.separated_string());
+                println!("Last reward: {}", (s.last_reward/100000.00).separated_string());
                 println!("Nim per day per kH: {}", s.nim_day_kh);
             },
             Err(e) => println!("{}", e)
@@ -2265,8 +2266,8 @@ fn main() {
                     println!("Transaction index: {}", s.transaction_index);
                     println!("From address: {}", s.from_address);
                     println!("To address: {}", s.to_address);
-                    println!("Value: {}", s.value/100000.00);
-                    println!("Fee: {}", s.fee/100000.00);
+                    println!("Value: {}", (s.value/100000.00).separated_string());
+                    println!("Fee: {}", (s.fee/100000.00).separated_string());
                     println!("Timestamp: Unix - {} Human - {} GMT", s.timestamp, NaiveDateTime::from_timestamp(s.timestamp, 0));
                 }
 
@@ -2295,9 +2296,9 @@ fn main() {
                     println!("Accounts hash: {}", s.accounts_hash);
                     println!("POW: {}", s.pow);
                     println!("NONCE: {}", s.nonce);
-                    println!("Reward: {}", s.reward/100000.00);
+                    println!("Reward: {}", (s.reward/100000.00).separated_string());
                     println!("Miner address: {}", s.miner_address);
-                    println!("Difficulty: {}", s.difficulty);
+                    println!("Difficulty: {}", s.difficulty.separated_string());
                     println!("Size: {}", s.size);
                     println!("Extra data: {}", s.extra_data);
                     println!("Transactions: {}", s.transactions);
@@ -2332,7 +2333,6 @@ fn main() {
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
     // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
-    // TODO: address book https://api.nimiqx.com/docs/address-book
     // TODO: latest transactions https://api.nimiqx.com/docs/latest-transactions
     // TODO: account information https://api.nimiqx.com/docs/account-information
     // TODO: account blocks https://api.nimiqx.com/docs/account-blocks
