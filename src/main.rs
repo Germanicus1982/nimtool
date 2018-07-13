@@ -560,6 +560,13 @@ fn main() {
 
             // TODO: Add month flag.
             // TODO: Add year flag.
+            // Currently month and year return some null values, unfortunately
+            // I didn't do my due diligence and anticipate this. This means
+            // in order to accommodate them I have to do some significant
+            // refactoring. Turning every serialized struct member into an
+            // Option<T> and then handling that option on many lines of currently
+            // working code. I'll save this until I've finished handling every
+            // other endpoint.
             //
             // The daily stats
             //
@@ -2216,5 +2223,26 @@ fn main() {
             Err(e) => println!("{}", e)
         }
     } // end of supply
+
+    // TODO: Convert numbers to better formats
+    //
+    // The --network-stats (-n) flag has been given
+    //
+    if matches.is_present("network-stats") {
+        // Grab supply data
+        let network_stats = get_network_stats_data();
+
+        match network_stats {
+            Ok(s) => {
+                println!("Hashrate: {}", s.hashrate);
+                println!("Last found block: {}", s.last_found);
+                println!("Block height: {}", s.height);
+                println!("Difficulty: {}", s.difficulty);
+                println!("Last reward: {}", s.last_reward);
+                println!("Nim per day per kH: {}", s.nim_day_kh);
+            },
+            Err(e) => println!("{}", e)
+        }
+    } // end of network-stats
 
 } // end of main

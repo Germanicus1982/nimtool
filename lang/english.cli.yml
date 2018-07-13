@@ -9,6 +9,11 @@ args:
         long: supply
         help: Current existing supply of Nim
 
+    - network-stats:
+        short: n
+        long: network-stats
+        help: Hashrate, last found block, height, difficulty, last reward and Nim per day per kH
+
     - price:
         short: p
         long: price
