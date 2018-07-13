@@ -61,7 +61,7 @@ fn main() {
                     //##############################
                     "btc" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₿{} - %1h: {} - %24h: {}",
+                            "GMT {}: ₿{} - %1h: {} - %24h: {}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.btc,
                             s.percent_change_1h.btc,
@@ -76,7 +76,7 @@ fn main() {
                     //##############################
                     "usd" => match getdata {
                         Ok(s) => println!(
-                            "{}: ${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.usd,
                             s.percent_change_1h.usd,
@@ -91,7 +91,7 @@ fn main() {
                     //##############################
                     "eur" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₠{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₠{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.eur,
                             s.percent_change_1h.eur,
@@ -106,7 +106,7 @@ fn main() {
                     //##############################
                     "aud" => match getdata {
                         Ok(s) => println!(
-                            "{}: A${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: A${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.aud,
                             s.percent_change_1h.aud,
@@ -121,7 +121,7 @@ fn main() {
                     //##############################
                     "brl" => match getdata {
                         Ok(s) => println!(
-                            "{}: ‎R${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ‎R${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.brl,
                             s.percent_change_1h.brl,
@@ -136,7 +136,7 @@ fn main() {
                     //##############################
                     "cad" => match getdata {
                         Ok(s) => println!(
-                            "{}: ‎${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ‎${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.cad,
                             s.percent_change_1h.cad,
@@ -151,7 +151,7 @@ fn main() {
                     //##############################
                     "cny" => match getdata {
                         Ok(s) => println!(
-                            "{}: ¥{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ¥{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.cny,
                             s.percent_change_1h.cny,
@@ -166,7 +166,7 @@ fn main() {
                     //##############################
                     "gbp" => match getdata {
                         Ok(s) => println!(
-                            "{}: £{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: £{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.gbp,
                             s.percent_change_1h.gbp,
@@ -181,7 +181,7 @@ fn main() {
                     //##############################
                     "nzd" => match getdata {
                         Ok(s) => println!(
-                            "{}: ${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ${} - 1h: %{} - 24h: %{} GMT",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.nzd,
                             s.percent_change_1h.nzd,
@@ -196,7 +196,7 @@ fn main() {
                     //##############################
                     "dkk" => match getdata {
                         Ok(s) => println!(
-                            "{}: kr{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: kr{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.dkk,
                             s.percent_change_1h.dkk,
@@ -211,7 +211,7 @@ fn main() {
                     //##############################
                     "jpy" => match getdata {
                         Ok(s) => println!(
-                            "{}: ¥{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ¥{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.jpy,
                             s.percent_change_1h.jpy,
@@ -226,7 +226,7 @@ fn main() {
                     //##############################
                     "pln" => match getdata {
                         Ok(s) => println!(
-                            "{}: zł{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: zł{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.pln,
                             s.percent_change_1h.pln,
@@ -241,7 +241,7 @@ fn main() {
                     //##############################
                     "krw" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₩{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₩{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.krw,
                             s.percent_change_1h.krw,
@@ -256,7 +256,7 @@ fn main() {
                     //##############################
                     "rub" => match getdata {
                         Ok(s) => println!(
-                            "{}: руб{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: руб{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.rub,
                             s.percent_change_1h.rub,
@@ -271,7 +271,7 @@ fn main() {
                     //##############################
                     "mxn" => match getdata {
                         Ok(s) => println!(
-                            "{}: ${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ${} - 1h: %{} - 24h: %{} GMT",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.mxn,
                             s.percent_change_1h.mxn,
@@ -286,7 +286,7 @@ fn main() {
                     //##############################
                     "sek" => match getdata {
                         Ok(s) => println!(
-                            "{}: kr{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: kr{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.sek,
                             s.percent_change_1h.sek,
@@ -301,7 +301,7 @@ fn main() {
                     //##############################
                     "hkd" => match getdata {
                         Ok(s) => println!(
-                            "{}: ${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ${} - 1h: %{} - 24h: %{} GMT",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.hkd,
                             s.percent_change_1h.hkd,
@@ -316,7 +316,7 @@ fn main() {
                     //##############################
                     "myr" => match getdata {
                         Ok(s) => println!(
-                            "{}: RM{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: RM{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.myr,
                             s.percent_change_1h.myr,
@@ -331,7 +331,7 @@ fn main() {
                     //##############################
                     "sgd" => match getdata {
                         Ok(s) => println!(
-                            "{}: S${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: S${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.sgd,
                             s.percent_change_1h.sgd,
@@ -346,7 +346,7 @@ fn main() {
                     //##############################
                     "chf" => match getdata {
                         Ok(s) => println!(
-                            "{}: CHF{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: CHF{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.chf,
                             s.percent_change_1h.chf,
@@ -361,7 +361,7 @@ fn main() {
                     //##############################
                     "huf" => match getdata {
                         Ok(s) => println!(
-                            "{}: Ft{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: Ft{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.huf,
                             s.percent_change_1h.huf,
@@ -376,7 +376,7 @@ fn main() {
                     //##############################
                     "nok" => match getdata {
                         Ok(s) => println!(
-                            "{}: kr{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: kr{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.nok,
                             s.percent_change_1h.nok,
@@ -391,7 +391,7 @@ fn main() {
                     //##############################
                     "thb" => match getdata {
                         Ok(s) => println!(
-                            "{}: ฿{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ฿{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.thb,
                             s.percent_change_1h.thb,
@@ -406,7 +406,7 @@ fn main() {
                     //##############################
                     "clp" => match getdata {
                         Ok(s) => println!(
-                            "{}: ${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ${} - 1h: %{} - 24h: %{} GMT",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.clp,
                             s.percent_change_1h.clp,
@@ -421,7 +421,7 @@ fn main() {
                     //##############################
                     "idr" => match getdata {
                         Ok(s) => println!(
-                            "{}: Rp{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: Rp{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.idr,
                             s.percent_change_1h.idr,
@@ -436,7 +436,7 @@ fn main() {
                     //##############################
                     "try" => match getdata {
                         Ok(s) => println!(
-                            "{}: TL{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: TL{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.try,
                             s.percent_change_1h.try,
@@ -451,7 +451,7 @@ fn main() {
                     //##############################
                     "ils" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₪{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₪{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.ils,
                             s.percent_change_1h.ils,
@@ -466,7 +466,7 @@ fn main() {
                     //##############################
                     "php" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₱{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₱{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.php,
                             s.percent_change_1h.php,
@@ -481,7 +481,7 @@ fn main() {
                     //##############################
                     "twd" => match getdata {
                         Ok(s) => println!(
-                            "{}: NT${} - 1h: %{} - 24h: %{}",
+                            "GMT {}: NT${} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.twd,
                             s.percent_change_1h.twd,
@@ -496,7 +496,7 @@ fn main() {
                     //##############################
                     "czk" => match getdata {
                         Ok(s) => println!(
-                            "{}: Kč{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: Kč{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.czk,
                             s.percent_change_1h.czk,
@@ -511,7 +511,7 @@ fn main() {
                     //##############################
                     "inr" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₹{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₹{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.inr,
                             s.percent_change_1h.inr,
@@ -526,7 +526,7 @@ fn main() {
                     //##############################
                     "pkr" => match getdata {
                         Ok(s) => println!(
-                            "{}: ₨{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: ₨{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.pkr,
                             s.percent_change_1h.pkr,
@@ -541,7 +541,7 @@ fn main() {
                     //##############################
                     "zar" => match getdata {
                         Ok(s) => println!(
-                            "{}: R{} - 1h: %{} - 24h: %{}",
+                            "GMT {}: R{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.zar,
                             s.percent_change_1h.zar,
@@ -2201,10 +2201,7 @@ fn main() {
             _ => unreachable!(),
 
         }// end of match price
-    // TODO: finish up help text
-    //} else if let Some(help) = matches.subcommand_matches("help") {
-        //
-    } // end of price flag
+    }// end of price flag
 
     //
     // The --supply (-s) flag has been given
@@ -2222,7 +2219,7 @@ fn main() {
             },
             Err(e) => println!("{}", e)
         }
-    } // end of supply
+    }// end of supply
 
     // TODO: Convert numbers to better formats
     //
@@ -2234,15 +2231,49 @@ fn main() {
 
         match network_stats {
             Ok(s) => {
-                println!("Hashrate: {}", s.hashrate);
+                if s.hashrate <= 999999.00 {
+                    println!("Hashrate: {} kH/s", s.hashrate/100000.00);
+                } else if (s.hashrate >= 1000000.00) && (s.hashrate <= 999999999.00) {
+                    println!("Hashrate: {} MH/s", s.hashrate / 1000000.00);
+                } else if s.hashrate >= 100000000.00 {
+                    println!("Hashrate: {} GH/s", s.hashrate/100000000.00);
+                }
                 println!("Last found block: {}", s.last_found);
                 println!("Block height: {}", s.height);
                 println!("Difficulty: {}", s.difficulty);
-                println!("Last reward: {}", s.last_reward);
+                println!("Last reward: {}", s.last_reward/100000.00);
                 println!("Nim per day per kH: {}", s.nim_day_kh);
             },
             Err(e) => println!("{}", e)
         }
-    } // end of network-stats
+    }// end of network-stats
 
-} // end of main
+    //
+    // The --transaction (-t) flag has been given
+    //
+    if let Some(hash) = matches.value_of("transaction") {
+        // Grab supply data
+        let transaction = get_transaction_data(hash);
+
+        match transaction {
+            Ok(s) => {
+                if s.error == "Invalid Hash" {
+                    println!("Transaction hash is invalid.");
+                } else {
+                    println!("Transaction hash: {}", s.hash);
+                    println!("Block height: {}", s.height);
+                    println!("Block hash: {}", s.block_hash);
+                    println!("Transaction index: {}", s.transaction_index);
+                    println!("From address: {}", s.from_address);
+                    println!("To address: {}", s.to_address);
+                    println!("Value: {}", s.value/100000.00);
+                    println!("Fee: {}", s.fee/100000.00);
+                    println!("Timestamp: Unix - {} Human - {} GMT", s.timestamp, NaiveDateTime::from_timestamp(s.timestamp, 0));
+                }
+
+            },
+            Err(e) => println!("Testing: {}", e)
+        }// end of transaction match
+    }// end of transaction flag
+
+}// end of main

@@ -14,6 +14,13 @@ args:
         long: network-stats
         help: Hashrate, last found block, height, difficulty, last reward and Nim per day per kH
 
+    - transaction:
+        short: t
+        long: transaction
+        help: Get information from a transaction hash
+        value_name: HASH
+        takes_value: true
+
     - price:
         short: p
         long: price
