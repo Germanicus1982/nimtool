@@ -1,9 +1,9 @@
 [package]
 publish = false
 name = "nimtool"
-version = "0.2.18"
+version = "0.6.0"
 description = "A simple tool to grab Nimiq metrics from api.nimiqx.com"
-authors = ["David Wagner <dev@aka.earth>"]
+authors = ["David Wagner <support@nimtool.com>"]
 license-file = "LICENSE"
 readme = "README.md"
 repository = "https://github.com/Germanicus1982/nimtool"
@@ -15,6 +15,8 @@ serde_derive = "^1.0"
 serde_json = "1.0.22"
 serde_yaml = "0.7.5"
 chrono = "0.4.4"
+textplots = "0.3.0"
+separator = "0.3.1"
 clap = {version = "2.32.0", features = ["yaml", "suggestions", "wrap_help"]}
 
 # TODO: Implement internationalization

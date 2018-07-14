@@ -1,9 +1,42 @@
 name: placeholder
 version: "0.0.0"
-about: A simple tool to grab Nimiq metrics from api.nimiqx.com
+about: "A simple tool to grab Nimiq metrics from api.nimiqx.com
+\r\nDonate to Nimtool developer: NQ91 GVBG 4EQD 39FA HPTL VPES VDFM FSPG 8QNB
+\r\nDonate to NimiqX API developer: NQ61 CX0A NJ3S MFP9 Q3RH HE6K SHH7 UAHE 8BV6"
 author: placeholder
 
 args:
+    - supply:
+        short: s
+        long: supply
+        help: Current existing supply of Nim
+
+    - network-stats:
+        short: n
+        long: network-stats
+        help: Hashrate, last found block, height, difficulty, last reward and Nim per day per kH
+
+    - transaction:
+        short: t
+        long: transaction
+        help: Get information from a transaction hash
+        value_name: HASH
+        takes_value: true
+
+    - blockinfo:
+        short: b
+        long: blockinfo
+        help: Get block information by block number
+        value_name: IDENTIFIER
+        takes_value: true
+
+    - addressbook:
+        short: a
+        long: addressbook
+        help: Find a name by address. Must use quotes e.g. "NQ91 GV..."
+        value_name: ADDRESS
+        takes_value: true
+
     - price:
         short: p
         long: price
@@ -14,6 +47,8 @@ args:
           - currency
         possible_values:
           - current
+          - day
+          - week
 
     - currency:
         short: c
