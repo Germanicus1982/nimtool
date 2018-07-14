@@ -2,7 +2,6 @@
 
 #[macro_use]
 extern crate clap;
-//extern crate statrs;
 extern crate chrono;
 extern crate nimtool;
 extern crate textplots;
@@ -38,7 +37,6 @@ fn main() {
         .name(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
-        //.about(crate_description!())
         .get_matches();
 
     //
@@ -2213,8 +2211,8 @@ fn main() {
 
         match supply {
             Ok(s) => {
-                println!("Block height: {}", s.height);
-                println!("Market cap: {}", s.market_cap);
+                println!("Block height: {}", s.height.separated_string());
+                println!("Market cap: ${}", s.market_cap.separated_string());
                 println!("Existing supply: {}", s.existing_supply.separated_string());
                 println!("Circulating supply: {}", s.circulating_supply.separated_string());
             },
@@ -2261,7 +2259,7 @@ fn main() {
                     println!("Transaction hash is invalid.");
                 } else {
                     println!("Transaction hash: {}", s.hash);
-                    println!("Block height: {}", s.height);
+                    println!("Block height: {}", s.height.separated_string());
                     println!("Block hash: {}", s.block_hash);
                     println!("Transaction index: {}", s.transaction_index);
                     println!("From address: {}", s.from_address);
@@ -2289,7 +2287,7 @@ fn main() {
                     println!("Block not found.");
                 } else {
                     println!("Block hash: {}", s.hash);
-                    println!("Block height: {}", s.height);
+                    println!("Block height: {}", s.height.separated_string());
                     println!("Parent hash: {}", s.parent_hash);
                     println!("Interlink hash: {}", s.interlink_hash);
                     println!("Body hash: {}", s.body_hash);
@@ -2330,6 +2328,7 @@ fn main() {
         }// end of addressbook match
     }// end of addressbook flag
 
+    // TODO: HIGH PRIORITY - GET READY FOR API KEY AUTHENTICATION
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
     // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
