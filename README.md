@@ -1,4 +1,4 @@
-﻿# nimtool  
+# Nimtool
 ## A simple tool to grab Nimiq metrics from [api.nimiqx.com](https://api.nimiqx.com "NimiqX API")
 [![Build Status](https://travis-ci.org/Germanicus1982/nimtool.svg?branch=dev)](https://travis-ci.org/Germanicus1982/nimtool)
 
