@@ -1,6 +1,0 @@
-[clog]
-repository = "https://github.com/Germanicus1982/nimtool"
-subtitle = "Nimtool"
-link-style = "github"
-changelog = "CHANGELOG.md"
-#from-latest-tag = true
