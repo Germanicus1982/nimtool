@@ -2236,7 +2236,21 @@ fn main() {
                 } else if s.hashrate >= 100000000.00 {
                     println!("Hashrate: {} GH/s", s.hashrate/100000000.00);
                 }
-                println!("Last found block: {}", s.last_found);
+
+                if s.last_found <= 60 {
+                    println!("Last found block: {}s ago", s.last_found);
+                } else if (s.last_found >= 61) && (s.last_found <= 3600) {
+                    let minutes = s.last_found / 60;
+                    let seconds = s.last_found % 60;
+                    println!("Last found block: {}m {}s ago", minutes, seconds);
+                } else if s.last_found >= 3601 {
+                    let minutes = s.last_found / 60;
+                    let seconds = s.last_found % 60;
+                    let hours = minutes / 60;
+                    let minutes = minutes % 60;
+                    println!("Last found block: {}h {}m {}s ago", hours, minutes, seconds);
+                }
+
                 println!("Block height: {}", s.height.separated_string());
                 println!("Difficulty: {}", s.difficulty.separated_string());
                 println!("Last reward: {}", (s.last_reward/100000.00).separated_string());
