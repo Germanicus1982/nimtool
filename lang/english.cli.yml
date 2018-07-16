@@ -37,6 +37,12 @@ args:
         value_name: ADDRESS
         takes_value: true
 
+    - appkey:
+        long: appkey
+        help: Set the application key
+        value_name: API_KEY
+        takes_value: true
+
     - price:
         short: p
         long: price

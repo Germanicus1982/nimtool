@@ -11,6 +11,7 @@ extern crate separator;
 fn main() {
     use clap::App;
     use nimtool::app::*;
+    use nimtool::datastore::apikey;
     use chrono::prelude::*;
     use textplots::{Chart, Plot, Shape};
     use separator::Separatable;
@@ -2342,7 +2343,21 @@ fn main() {
         }// end of addressbook match
     }// end of addressbook flag
 
-    // TODO: HIGH PRIORITY - GET READY FOR API KEY AUTHENTICATION
+    //
+    // The --appkey option has been given
+    //
+    if let Some(appkey) = matches.value_of("appkey") {
+        // Grab supply data
+        let appkey = apikey(appkey);
+
+        match appkey {
+            Ok(s) => {
+                println!("{:#?}", s)
+            }
+            Err(e) => println!("{:#?}", e)
+        }// end of appkey match
+    }// end of appkey flag
+
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
     // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
