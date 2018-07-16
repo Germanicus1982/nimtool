@@ -55,6 +55,8 @@ args:
           - current
           - day
           - week
+          - month
+          - year
 
     - currency:
         short: c
