@@ -83,6 +83,24 @@ pub mod app {
         get(url)?.json()
     }
 
+    // grab price every 1 hour for the last month
+    pub fn get_price_month_data() -> Result<Vec<PriceDay>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/price/month/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
     // grab supply data for supply flag
     pub fn get_supply_data() -> Result<Supply, Error> {
         // grab the api key
