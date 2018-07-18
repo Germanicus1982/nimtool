@@ -4122,6 +4122,26 @@ fn main() {
     }// end of addressbook flag
 
     //
+    // The --label (-l) option has been given
+    //
+    if let Some(label) = matches.value_of("label") {
+        // Grab supply data
+        let address = get_labelbook_data(label);
+
+        match address {
+            Ok(s) => {
+                if s.error != "" {
+                    println!("{}", s.error);
+                } else {
+                    println!("Address: {}\r\nCreated: {} GMT", s.address, NaiveDateTime::from_timestamp(s.created, 0),);
+                }
+
+            },
+            Err(e) => println!("{:#?}", e)
+        }// end of address match
+    }// end of label flag
+
+    //
     // The --appkey option has been given
     //
     if let Some(appkey) = matches.value_of("appkey") {

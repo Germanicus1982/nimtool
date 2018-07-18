@@ -12,6 +12,7 @@ pub mod netstat;
 pub mod transaction;
 pub mod block;
 pub mod addressbook;
+pub mod labelbook;
 pub mod hashrate;
 
 pub mod app {
@@ -23,6 +24,7 @@ pub mod app {
     use super::addressbook::*;
     use super::datastore::getkey;
     use super::hashrate::*;
+    use super::labelbook::*;
     use reqwest::{Error, get};
 
     use reqwest::Url;
@@ -226,6 +228,34 @@ pub mod app {
         };
         // append input data
         let base = match base.join(address) {
+            Ok(base) => base,
+            Err(_) => panic!("Parse error: lib.rs appending input data")
+        };
+        // add the api key
+        let url = match Url::parse_with_params(
+            &*base.to_string(),
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab addressbook data for addressbook option
+    pub fn get_labelbook_data(label: &str) -> Result<LabelBook, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url base
+        let base = match Url::parse("https://api.nimiqx.com/label-book/") {
+            Ok(base) => base,
+            Err(_) => panic!("Parse error: lib.rs building base url")
+        };
+        // append input data
+        let base = match base.join(label) {
             Ok(base) => base,
             Err(_) => panic!("Parse error: lib.rs appending input data")
         };

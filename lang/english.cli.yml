@@ -37,6 +37,13 @@ args:
         value_name: ADDRESS
         takes_value: true
 
+    - label:
+        short: l
+        long: label
+        help: Find an address by name
+        value_name: LABEL
+        takes_value: true
+
     - appkey:
         long: appkey
         help: Set the application key
