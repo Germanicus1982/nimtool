@@ -270,7 +270,7 @@ pub mod app {
         get(url)?.json()
     }
 
-    // grab hashrate data for current flag
+    // grab current hashrate data for current flag
     pub fn get_hashrate_data() -> Result<Hashrate, Error> {
         // grab the api key
         let apikey = match getkey() {
@@ -280,6 +280,96 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab hour hashrate data for hour flag
+    pub fn get_hour_hashrate_data() -> Result<Vec<Hashrate>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/hour/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab day hashrate data for day flag
+    pub fn get_day_hashrate_data() -> Result<Vec<Hashrate>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/day/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab week hashrate data for week flag
+    pub fn get_week_hashrate_data() -> Result<Vec<Hashrate>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/week/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab month hashrate data for month flag
+    pub fn get_month_hashrate_data() -> Result<Vec<Hashrate>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/month/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
+
+    // grab year hashrate data for year flag
+    pub fn get_year_hashrate_data() -> Result<Vec<Hashrate>, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/year/",
             &[("nimtool", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)

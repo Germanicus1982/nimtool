@@ -3962,9 +3962,9 @@ fn main() {
     // The --hashrate (-h) flag has been given
     //
     if let Some(hashrate) = matches.value_of("hashrate") {
-        let hashratedata = get_hashrate_data();
+        //let hashratedata = get_hashrate_data();
         match hashrate {
-            "current" => match hashratedata {
+            "current" => match get_hashrate_data() {
                 Ok(s) => {
                     if s.hashrate <= 999999.00 {
                         println!("Hashrate: {} kH/s", s.hashrate/100000.00);
@@ -3977,9 +3977,94 @@ fn main() {
                 Err(e) => println!("{:#?}", e)
             }
 
+            "hour" => match get_hour_hashrate_data() {
+                Ok(s) => {
+                    let points: Vec<_> = s
+                        .iter()
+                        .enumerate()
+                        .map(|(i, h)| (i as f32, h.hashrate as f32))
+                        .collect();
+                    let count = s.iter().count();
+
+                    println!("Hashrate for the last hour");
+                    Chart::new(180, 60, 0.0, count as f32)
+                        .lineplot(Shape::Lines(&points))
+                        .display();
+                },
+                Err(e) => println!("test {:#?}", e)
+            }
+
+            "day" => match get_day_hashrate_data() {
+                Ok(s) => {
+                    let points: Vec<_> = s
+                        .iter()
+                        .enumerate()
+                        .map(|(i, h)| (i as f32, h.hashrate as f32))
+                        .collect();
+                    let count = s.iter().count();
+
+                    println!("Hashrate for the last day");
+                    Chart::new(180, 60, 0.0, count as f32)
+                        .lineplot(Shape::Lines(&points))
+                        .display();
+                },
+                Err(e) => println!("test {:#?}", e)
+            }
+
+            "week" => match get_week_hashrate_data() {
+                Ok(s) => {
+                    let points: Vec<_> = s
+                        .iter()
+                        .enumerate()
+                        .map(|(i, h)| (i as f32, h.hashrate as f32))
+                        .collect();
+                    let count = s.iter().count();
+
+                    println!("Hashrate for the last week");
+                    Chart::new(180, 60, 0.0, count as f32)
+                        .lineplot(Shape::Lines(&points))
+                        .display();
+                },
+                Err(e) => println!("test {:#?}", e)
+            }
+
+            "month" => match get_month_hashrate_data() {
+                Ok(s) => {
+                    let points: Vec<_> = s
+                        .iter()
+                        .enumerate()
+                        .map(|(i, h)| (i as f32, h.hashrate as f32))
+                        .collect();
+                    let count = s.iter().count();
+
+                    println!("Hashrate for the last month");
+                    Chart::new(180, 60, 0.0, count as f32)
+                        .lineplot(Shape::Lines(&points))
+                        .display();
+                },
+                Err(e) => println!("test {:#?}", e)
+            }
+
+            "year" => match get_year_hashrate_data() {
+                Ok(s) => {
+                    let points: Vec<_> = s
+                        .iter()
+                        .enumerate()
+                        .map(|(i, h)| (i as f32, h.hashrate as f32))
+                        .collect();
+                    let count = s.iter().count();
+
+                    println!("Hashrate for the last year");
+                    Chart::new(180, 60, 0.0, count as f32)
+                        .lineplot(Shape::Lines(&points))
+                        .display();
+                },
+                Err(e) => println!("test {:#?}", e)
+            }
+
             _ => unreachable!(),
-        }
-    }
+        }// end match hashrate
+    }// end hashrate flag
 
     //
     // The --supply (-s) flag has been given
@@ -4156,7 +4241,6 @@ fn main() {
         }// end of appkey match
     }// end of appkey flag
 
-    // TODO: hashrate for hour, day, week, month and year
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
     // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
