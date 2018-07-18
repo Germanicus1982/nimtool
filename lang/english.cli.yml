@@ -43,6 +43,19 @@ args:
         value_name: API_KEY
         takes_value: true
 
+    - hashrate:
+        short: h
+        long: hashrate
+        value_name: SCOPE
+        takes_value: true
+        possible_values:
+          - current
+          - hour
+          - day
+          - week
+          - month
+          - year
+
     - price:
         short: p
         long: price

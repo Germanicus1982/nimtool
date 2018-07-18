@@ -20,6 +20,20 @@ separator = "0.3.1"
 directories = "1.0.1"
 clap = {version = "2.32.0", features = ["yaml", "suggestions", "wrap_help"]}
 
+[package.metadata.deb]
+maintainer = "David Wagner <support@nimtool.com>"
+copyright = "2018, David Wagner <support@nimtool.com>"
+license-file = ["LICENSE", "4"]
+extended-description = """\
+A simple tool to grab Nimiq metrics from api.nimiqx.com"""
+depends = "$auto"
+section = "utility"
+priority = "optional"
+assets = [
+    ["target/release/nimtool", "usr/bin/", "755"],
+    ["README.md", "usr/share/doc/nimtool/README", "644"],
+]
+
 # TODO: Implement internationalization
 #
 #[features]

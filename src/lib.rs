@@ -12,7 +12,7 @@ pub mod netstat;
 pub mod transaction;
 pub mod block;
 pub mod addressbook;
-//pub mod data;
+pub mod hashrate;
 
 pub mod app {
     use super::price::*;
@@ -22,6 +22,7 @@ pub mod app {
     use super::block::*;
     use super::addressbook::*;
     use super::datastore::getkey;
+    use super::hashrate::*;
     use reqwest::{Error, get};
 
     use reqwest::Url;
@@ -239,6 +240,23 @@ pub mod app {
         get(url)?.json()
     }
 
+    // grab hashrate data for current flag
+    pub fn get_hashrate_data() -> Result<Hashrate, Error> {
+        // grab the api key
+        let apikey = match getkey() {
+            Ok(apikey) => apikey,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // build the url
+        let url = match Url::parse_with_params(
+            "https://api.nimiqx.com/hashrate/",
+            &[("nimtool", &*apikey)]) {
+            Ok(url) => url,
+            Err(e) => panic!("{:#?}", e)
+        };
+        // make the call and deserialize
+        get(url)?.json()
+    }
 }
 
 pub mod datastore {

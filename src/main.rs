@@ -45,14 +45,15 @@ fn main() {
     // current, day, week, month and year
     //
     if let Some(price) = matches.value_of("price") {
-        // Lets grab the price data for `current`
-        let getdata = get_price_data();
 
         match price {
             //
             // Each price takes a --currency (-c) flag, lots of choices
             //
             "current" => if let Some(currency) = matches.value_of("currency") {
+                // Lets grab the price data for `current`
+                let getdata = get_price_data();
+
                 match currency {
                     //##############################
                     // PRICE
@@ -3956,6 +3957,29 @@ fn main() {
 
         }// end of match price
     }// end of price flag
+
+    //
+    // The --hashrate (-h) flag has been given
+    //
+    if let Some(hashrate) = matches.value_of("hashrate") {
+        let hashratedata = get_hashrate_data();
+        match hashrate {
+            "current" => match hashratedata {
+                Ok(s) => {
+                    if s.hashrate <= 999999.00 {
+                        println!("Hashrate: {} kH/s", s.hashrate/100000.00);
+                    } else if (s.hashrate >= 1000000.00) && (s.hashrate <= 999999999.00) {
+                        println!("Hashrate: {} MH/s", s.hashrate / 1000000.00);
+                    } else if s.hashrate >= 100000000.00 {
+                        println!("Hashrate: {} GH/s", s.hashrate/100000000.00);
+                    }
+                },
+                Err(e) => println!("{:#?}", e)
+            }
+
+            _ => unreachable!(),
+        }
+    }
 
     //
     // The --supply (-s) flag has been given
