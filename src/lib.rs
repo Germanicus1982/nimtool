@@ -438,13 +438,12 @@ pub mod datastore {
                 };
                 Ok(key)
             } else {
-                panic!("Key doesn't exist.")
+                panic!("Please add your API key from api.nimiqx.com.")
             }
         } else {
             panic!("Could not get key from keystore.")
         }
 
-        //Ok(key)
     }
 
 }// end mod datastore
