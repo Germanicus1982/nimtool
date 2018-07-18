@@ -4113,7 +4113,7 @@ fn main() {
                 if s.error != "" {
                     println!("{}", s.error);
                 } else {
-                    println!("Label: {}", s.label);
+                    println!("Label: {}\r\nCreated: {} GMT", s.label, NaiveDateTime::from_timestamp(s.created, 0),);
                 }
 
             },
@@ -4136,6 +4136,7 @@ fn main() {
         }// end of appkey match
     }// end of appkey flag
 
+    // TODO: hashrate for hour, day, week, month and year
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate
     // TODO: hashing distribution https://api.nimiqx.com/docs/hashing-distribution
