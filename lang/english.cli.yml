@@ -1,7 +1,7 @@
 name: placeholder
 version: "0.0.0"
 about: "A simple tool to grab Nimiq metrics from api.nimiqx.com
-\r\nDonate to Nimtool developer: NQ91 GVBG 4EQD 39FA HPTL VPES VDFM FSPG 8QNB
+\r\nDonate to Nimtool developer: NQ63 RHCJ XVXE 3TX5 V318 SGUD 75NQ SP4G E9YQ
 \r\nDonate to NimiqX API developer: NQ61 CX0A NJ3S MFP9 Q3RH HE6K SHH7 UAHE 8BV6"
 author: placeholder
 
@@ -37,6 +37,32 @@ args:
         value_name: ADDRESS
         takes_value: true
 
+    - label:
+        short: l
+        long: label
+        help: Find an address by name
+        value_name: LABEL
+        takes_value: true
+
+    - appkey:
+        long: appkey
+        help: Set the application key
+        value_name: API_KEY
+        takes_value: true
+
+    - hashrate:
+        short: h
+        long: hashrate
+        value_name: SCOPE
+        takes_value: true
+        possible_values:
+          - current
+          - hour
+          - day
+          - week
+          - month
+          - year
+
     - price:
         short: p
         long: price
@@ -49,6 +75,8 @@ args:
           - current
           - day
           - week
+          - month
+          - year
 
     - currency:
         short: c

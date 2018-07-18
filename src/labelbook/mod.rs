@@ -1,7 +1,7 @@
 #[derive(Deserialize, Debug)]
-pub struct AddressBook {
+pub struct LabelBook {
     #[serde(default)]
-    pub label: String,
+    pub address: String,
     #[serde(default)]
     pub created: i64,
     #[serde(default)]
