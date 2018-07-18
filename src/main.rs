@@ -62,7 +62,7 @@ fn main() {
                     //##############################
                     "btc" => match getdata {
                         Ok(s) => println!(
-                            "GMT {}: ₿{} - %1h: {} - %24h: {}",
+                            "GMT {}: ₿{} - 1h: %{} - 24h: %{}",
                             NaiveDateTime::from_timestamp(s.timestamp, 0),
                             s.btc,
                             s.percent_change_1h.btc,
