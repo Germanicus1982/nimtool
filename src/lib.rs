@@ -1,10 +1,11 @@
 //#![allow(dead_code, unused_imports)]
 
 extern crate reqwest;
-#[macro_use]
-extern crate serde_derive;
+#[macro_use] extern crate serde_derive;
 extern crate serde_json;
 extern crate directories;
+#[macro_use] extern crate failure;
+//#[macro_use] extern crate failure_derive;
 
 pub mod price;
 pub mod supply;
@@ -25,9 +26,7 @@ pub mod app {
     use super::datastore::getkey;
     use super::hashrate::*;
     use super::labelbook::*;
-    use reqwest::{Error, get};
-
-    use reqwest::Url;
+    use reqwest::{Error, get, Url};
 
     // TODO: Refactor all of these into one function
 
@@ -381,67 +380,46 @@ pub mod app {
 
 pub mod datastore {
     use std::fs::File;
+    use std::fs;
     use std::fs::create_dir_all;
     use std::io::prelude::*;
-    use std::error::Error;
     use directories::ProjectDirs;
+    use failure::Error;
 
-    pub fn apikey(key: &str) -> Result<bool, Box<Error>> {
+    pub fn apikey(key: &str) -> Result<bool, Error> {
         //let mut success = false;
         if let Some(path) = ProjectDirs::from("com", "nimtool", "nimtool") {
             // create the path if it doesn't exist
-            match create_dir_all(path.config_dir()) {
-                Ok(()) => (),
-                Err(e) => panic!("{:#?}", e)
-            }
+            create_dir_all(path.config_dir())?;
 
             // append our file to the path
             let path = path.config_dir().join("data.db");
 
             // Overwrite the file or create it if it doesn't exist
-            let mut file = match File::create(&path) {
-                Ok(file) =>  file,
-                Err(e) => panic!("{:#?}", e)
-            };
+            let mut file = File::create(&path)?;
 
             // and write the key newly created file
-            match file.write_all(key.as_bytes()) {
-                Ok(()) => (),
-                Err(e) => panic!("{:#?}", e)
-            }
+            file.write_all(key.as_bytes())?;
         } else {
-            panic!("The path to store the API key couldn't be created")
+            return Err(format_err!("The path to store the API key could not be created."));
         }
-        // Return true since everything worked without panics
+        // Return true since everything worked without error
         Ok(true)
     }// end apikey
 
-    // update the api key
-    pub fn getkey() -> Result<String, Box<Error>> {
+    // get the api key
+    pub fn getkey() -> Result<String, Error> {
         if let Some(path) = ProjectDirs::from("com", "nimtool", "nimtool") {
             let path = path.config_dir().join("data.db");
 
             // get the key
             if path.exists() {
-                // open the file
-                let mut file = match File::open(&path) {
-                    Ok(file) => file,
-                    Err(e) => panic!("{:#?}", e)
-                };
-
-                // create a string to read the file contents into
-                let mut buffer = String::new();
-                // read the contents into the string
-                let key = match file.read_to_string(&mut buffer) {
-                    Ok(_) => buffer,
-                    Err(e) => panic!("{:#?}", e)
-                };
-                Ok(key)
+                Ok(fs::read_to_string(&path)?)
             } else {
-                panic!("Please add your API key from api.nimiqx.com.")
+                Err(format_err!("Please add your API key from api.nimiqx.com using the --appkey option."))
             }
         } else {
-            panic!("Could not get key from keystore.")
+            Err(format_err!("Could not get key from keystore file."))
         }
 
     }
