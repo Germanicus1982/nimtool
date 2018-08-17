@@ -1,11 +1,8 @@
-//#![allow(dead_code, unused_imports)]
-
 extern crate reqwest;
 #[macro_use] extern crate serde_derive;
 extern crate serde_json;
 extern crate directories;
 #[macro_use] extern crate failure;
-//#[macro_use] extern crate failure_derive;
 
 pub mod price;
 pub mod supply;
@@ -425,9 +422,3 @@ pub mod datastore {
     }
 
 }// end mod datastore
-
-// TODO: write tests
-#[cfg(test)]
-mod tests {
-
-}
