@@ -41,7 +41,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/price/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -59,7 +59,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/price/day/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -77,7 +77,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/price/week/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -95,7 +95,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/price/month/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -113,7 +113,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/price/year/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -131,7 +131,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/supply/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -149,7 +149,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/network-stats/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -177,7 +177,7 @@ pub mod app {
         // add the api key
         let url = match Url::parse_with_params(
             &*base.to_string(),
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -205,7 +205,7 @@ pub mod app {
         // add the api key
         let url = match Url::parse_with_params(
             &*base.to_string(),
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -233,7 +233,7 @@ pub mod app {
         // add the api key
         let url = match Url::parse_with_params(
             &*base.to_string(),
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -261,7 +261,7 @@ pub mod app {
         // add the api key
         let url = match Url::parse_with_params(
             &*base.to_string(),
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -279,7 +279,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -297,7 +297,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/hour/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -315,7 +315,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/day/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -333,7 +333,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/week/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -351,7 +351,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/month/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };
@@ -369,7 +369,7 @@ pub mod app {
         // build the url
         let url = match Url::parse_with_params(
             "https://api.nimiqx.com/hashrate/year/",
-            &[("nimtool", &*apikey)]) {
+            &[("api_key", &*apikey)]) {
             Ok(url) => url,
             Err(e) => panic!("{:#?}", e)
         };

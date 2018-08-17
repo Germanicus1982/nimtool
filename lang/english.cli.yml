@@ -45,7 +45,7 @@ args:
         takes_value: true
 
     - appkey:
-        long: appkey
+        long: apikey
         help: Set the application key
         value_name: API_KEY
         takes_value: true
