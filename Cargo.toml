@@ -1,7 +1,7 @@
 [package]
 publish = false
 name = "nimtool"
-version = "0.10.0"
+version = "1.0.0"
 description = "A simple tool to grab Nimiq metrics from api.nimiqx.com"
 authors = ["David Wagner <support@nimtool.com>"]
 license-file = "LICENSE"
@@ -18,6 +18,8 @@ chrono = "0.4.4"
 textplots = "0.3.0"
 separator = "0.3.1"
 directories = "1.0.1"
+failure = "0.1.1"
+failure_derive = "0.1.1"
 clap = {version = "2.32.0", features = ["yaml", "suggestions", "wrap_help"]}
 
 [package.metadata.deb]

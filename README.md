@@ -22,7 +22,7 @@ Output: GMT 2018-07-18 22:20:03: ₿0.00000044 - 1h: %-10.20 - 24h: %12.82
 
     OPTIONS:
         -a, --addressbook <ADDRESS>     Find a name by address. Must use quotes e.g. "NQ91 GV..."
-            --appkey <API_KEY>          Set the application key
+            --apikey <API_KEY>          Set the application key
         -b, --blockinfo <IDENTIFIER>    Get block information by block number
         -c, --currency <CURRENCY>       Set the output currency [possible values: usd, eur, aud, brl, cad, cny, gbp, nzd, dkk, jpy, pln, krw, rub, mxn, sek, hkd, myr, sgd, chf,
                                         huf, nok, thb, clp, idr, try, ils, php, twd, czk, inr, pkr, zar, btc]
@@ -34,14 +34,11 @@ Output: GMT 2018-07-18 22:20:03: ₿0.00000044 - 1h: %-10.20 - 24h: %12.82
 ```
 
 # Installation
-To download the latest binaries visit https://nimtool.com/downloads
+To download the latest binaries for Linux and Windows visit https://nimtool.com/downloads
 
-I have only tested this on x86_64 Linux and Windows 10 however, it builds alright on Travis CI on Mac as well. To use the tool you first need to install the rust toolchain. Fortunately rust makes this real easy with Rustup. This tool is currently using Rust nightly so be sure you have it installed.
+I have only tested this on x86_64 Linux and Windows 10 however, it builds alright on Travis CI on Mac as well. To build this tool from source you first need to install the rust toolchain. Fortunately rust makes this real easy with [Rustup](https://rustup.rs). You will also need a free api key from [NimiqX](https://api.nimiqx.com/docs/about "NimiqX API Key"). You must set the --apikey first or all other commands will fail.
 
-```sh
-curl https://sh.rustup.rs -sSf | sh
-```
-Once installed clone this repository
+Once Rust is installed clone this repository
 
 ```sh
 git clone https://github.com/Germanicus1982/nimtool.git
@@ -52,7 +49,7 @@ and then you can use Cargo to build it
 cd nimtool
 cargo build --release
 ```
-This will output the binary to target/release/nimtool
+This will output the binary to target/release/nimtool. From there you can copy it to a folder in your path or just call it from that directory.
 
 # Thanks
 ### Thanks to [Miao](https://api.nimiqx.com/docs/about "Miao") at [NimiqX](https://api.nimiqx.com "NimiqX.com") for such a comprehensive API for me to experiment with.

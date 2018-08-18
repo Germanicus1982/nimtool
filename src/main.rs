@@ -1,5 +1,3 @@
-//#![allow(dead_code)]
-
 #[macro_use]
 extern crate clap;
 extern crate chrono;
@@ -4227,9 +4225,9 @@ fn main() {
     }// end of label flag
 
     //
-    // The --appkey option has been given
+    // The --apikey option has been given
     //
-    if let Some(appkey) = matches.value_of("appkey") {
+    if let Some(appkey) = matches.value_of("apikey") {
         // Grab supply data
         let appkey = apikey(appkey);
 
@@ -4238,8 +4236,8 @@ fn main() {
                 println!("{:#?}", s)
             }
             Err(e) => println!("{:#?}", e)
-        }// end of appkey match
-    }// end of appkey flag
+        }// end of apikey match
+    }// end of apikey flag
 
     // TODO: latest blocks https://api.nimiqx.com/docs/latest-blocks
     // TODO: global hashrate https://api.nimiqx.com/docs/global-hashrate

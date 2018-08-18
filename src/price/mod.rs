@@ -1,8 +1,3 @@
-//
-// Create the price struct that will
-// hold the deserialized response from
-// get_price_data()
-//
 #[derive(Deserialize, Debug)]
 pub struct Price {
     #[serde(default)]
@@ -148,10 +143,6 @@ pub struct PricePercentChange {
 
 }
 
-//
-// Create a struct to hold price/day data
-// NOTE: Serde returns this as a Vec due
-// to it having multiple return values
 #[derive(Deserialize, Debug)]
 pub struct PriceDay {
     #[serde(default)]
