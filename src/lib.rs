@@ -413,7 +413,7 @@ pub mod datastore {
             if path.exists() {
                 Ok(fs::read_to_string(&path)?)
             } else {
-                Err(format_err!("Please add your API key from api.nimiqx.com using the --appkey option."))
+                Err(format_err!("Please add your API key from api.nimiqx.com using the --apikey option."))
             }
         } else {
             Err(format_err!("Could not get key from keystore file."))
